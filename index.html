@@ -362,6 +362,58 @@ animation:tentacleOrganic 6s ease-in-out infinite;
 100%{transform:rotate(0deg)}
 }
 
+/* MEDIA QUERIES PARA MÓVILES */
+@media (max-width: 768px) {
+  .hero-wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
+  
+  .hero {
+    padding: 60px 20px;
+  }
+  
+  .hero-octopus {
+    max-width: 180px;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .menu {
+    justify-content: center;
+  }
+  
+  .logo {
+    margin-bottom: 10px;
+  }
+  
+  .container {
+    padding: 40px 20px;
+  }
+  
+  .search-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .search-row .search-box {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 </style>
 </head>
 
