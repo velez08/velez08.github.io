@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OctoTrámites | Papelería y Trámites</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="octoGrad" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#9c4dff"/>
+<stop offset="100%" stop-color="#6a0dad"/>
+</linearGradient>
+</defs>
+<circle cx="60" cy="42" r="26" fill="url(#octoGrad)"/>
+<circle cx="50" cy="38" r="5" fill="white"/>
+<circle cx="70" cy="38" r="5" fill="white"/>
+<circle cx="50" cy="38" r="2.5" fill="#210328"/>
+<circle cx="70" cy="38" r="2.5" fill="#210328"/>
+<path d="M32 68 C28 84 40 92 44 86" stroke="#9c4dff" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M48 72 C45 90 60 96 60 88" stroke="#9c4dff" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M72 72 C75 90 60 96 60 88" stroke="#9c4dff" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M88 68 C94 84 78 92 74 86" stroke="#9c4dff" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
+OctoTrámites
+</div>
+
+<div class="menu">
+<a href="#">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#contacto">Contacto</a>
+<span class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></span>
+<button class="toggle" onclick="toggleDark()">🌙</button>
+</div>
+</nav>
+</header>
+
+<!-- CARRITO -->
+<div class="cart-panel" id="cartPanel">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+<h3 style="margin:0">Carrito</h3>
+<button onclick="closeCart()" style="background:transparent;border:none;font-size:20px;cursor:pointer">✕</button>
+</div>
+<div id="cartItems"></div>
+
+<button onclick="vaciarCarrito()" style="margin-top:10px;background:#ff6b6b;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer">Vaciar carrito</button>
+
+<button onclick="enviarWhatsApp()" style="margin-top:10px;background:#25D366;color:white;border:none;padding:10px 12px;border-radius:8px;cursor:pointer;width:100%">Enviar pedido por WhatsApp</button>
+</div>
+
+<section class="hero">
+<div class="particles">
+<span style="left:5%;animation-delay:0s"></span>
+<span style="left:10%;animation-delay:1s"></span>
+<span style="left:15%;animation-delay:3s"></span>
+<span style="left:20%;animation-delay:2s"></span>
+<span style="left:30%;animation-delay:4s"></span>
+<span style="left:35%;animation-delay:6s"></span>
+<span style="left:45%;animation-delay:1.5s"></span>
+<span style="left:50%;animation-delay:5s"></span>
+<span style="left:60%;animation-delay:2.5s"></span>
+<span style="left:65%;animation-delay:7s"></span>
+<span style="left:75%;animation-delay:3.5s"></span>
+<span style="left:80%;animation-delay:5.5s"></span>
+<span style="left:90%;animation-delay:4.5s"></span>
+
+<!-- burbujas cercanas al octo -->
+<span class="deep" style="left:52%;bottom:40px;animation-delay:2s"></span>
+<span class="deep" style="left:56%;bottom:20px;animation-delay:4s"></span>
+<span class="deep" style="left:60%;bottom:35px;animation-delay:6s"></span>
+<span class="deep" style="left:48%;bottom:25px;animation-delay:3s"></span>
+</div>
+<div class="hero-wrap">
+
+<div>
+<h1>Servicios de Papelería Soluciones Digitales y Más</h1>
+<p>Impresiones, trámites, certificados, citas médicas y desarrollo web para negocios.</p>
+</div>
+
+<div>
+<svg class="hero-octopus" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="octoHero" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#c084ff"/>
+<stop offset="100%" stop-color="#6a0dad"/>
+</linearGradient>
+</defs>
+<circle cx="100" cy="80" r="44" fill="url(#octoHero)"/>
+<circle cx="84" cy="70" r="7" fill="white"/>
+<circle cx="116" cy="70" r="7" fill="white"/>
+<circle cx="84" cy="70" r="3" fill="#210328"/>
+<circle cx="116" cy="70" r="3" fill="#210328"/>
+<path d="M60 120 C50 150 80 165 90 150" stroke="#c084ff" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M90 128 C88 160 110 170 105 150" stroke="#c084ff" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M110 128 C112 160 90 170 95 150" stroke="#c084ff" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M140 120 C155 150 120 165 110 150" stroke="#c084ff" stroke-width="10" fill="none" stroke-linecap="round"/>
+</svg>
+</div>
+
+</div>
+</section>
+
+<section id="servicios" class="container">
+
+<div class="search-row">
+  <h2>Buscar Servicio</h2>
+  <div class="search-box">
+    <input id="searchInput" placeholder="Ej: RUT, Fotocopias, SOAT, Cita médica">
+    <button onclick="buscarServicio()">Buscar</button>
+  </div>
+</div>
+
+<h2>Servicios Principales</h2>
+
+<div class="grid" id="servicesGrid">
+
+<div class="card">
+<h3>🖨️ Impresiones</h3>
+<p>Fotocopias, impresiones y escáner.</p>
+<button class="add-cart" onclick="showServices('Impresiones')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>📄 Trámites</h3>
+<p>RUT, certificados y documentos.</p>
+<button class="add-cart" onclick="showServices('Trámites')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>🏥 EPS y Salud</h3>
+<p>Citas médicas y resultados.</p>
+<button class="add-cart" onclick="showServices('EPS y Salud')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>🚗 Tránsito</h3>
+<p>Consulta RUNT, SIMIT y SOAT.</p>
+<button class="add-cart" onclick="showServices('Tránsito')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>👨‍👩‍👧 Programas Sociales</h3>
+<p>SISBÉN y subsidios.</p>
+<button class="add-cart" onclick="showServices('Programas Sociales')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>🏦 Bancos</h3>
+<p>Pagos PSE y certificados.</p>
+<button class="add-cart" onclick="showServices('Bancos')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>🌐 Creación Web</h3>
+<p>Páginas profesionales para negocios.</p>
+<button class="add-cart" onclick="showServices('Creación Web')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>⚙️ Mantenimiento Web</h3>
+<p>Soporte y actualización.</p>
+<button class="add-cart" onclick="showServices('Mantenimiento Web')">Ver servicios</button>
+</div>
+
+<div class="card">
+<h3>🏛️ Gobierno y documentos</h3>
+<p>Gestión de documentos y certificados gubernamentales.</p>
+<button class="add-cart" onclick="showServices('Gobierno y documentos')">Ver servicios</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- Service details modal -->
+<div id="serviceModal" class="service-modal" aria-hidden="true">
+  <div class="service-modal-backdrop" onclick="closeServicesModal()"></div>
+  <div class="service-modal-panel">
+    <button class="service-close" onclick="closeServicesModal()">✕</button>
+    <h3 id="serviceModalTitle">Servicios</h3>
+    <div id="serviceModalContent"></div>
+  </div>
+</div>
+
+<section id="contacto" class="contact-section">
+
+<h2>Contacto</h2>
+
+<div class="contact-grid">
+
+<!-- WhatsApp contact-card removed; replaced by floating icon -->
+
+<div class="contact-card">
+<div class="contact-icon">📧</div>
+<h3>Correo</h3>
+<p>Example.email@gmail.com</p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">📍</div>
+<h3>Dirección</h3>
+<p>Calle 71A #43-109</p>
+<p>Medellín, Colombia</p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">🕒</div>
+<h3>Horario</h3>
+<p>Lunes a Sábado</p>
+<p>8:00 AM – 6:00 PM</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 OctoTrámites - Servicios de Papelería y Desarrollo Web</p>
+</footer>
+
+<!-- Floating WhatsApp button (SVG icon, animated, responsive) -->
+<button id="whatsappFloat" aria-label="Contactar por WhatsApp" title="Contactar por WhatsApp">
+  <!-- Branded WhatsApp SVG (integrated with page colors) -->
+  <svg id="whatsappIcon" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="waGrad" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#25D366" />
+        <stop offset="100%" stop-color="#128C7E" />
+      </linearGradient>
+    </defs>
+    <!-- outer circle with gradient -->
+    <circle cx="12" cy="12" r="11" fill="url(#waGrad)" />
+    <!-- white phone glyph -->
+    <path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.15s-.77.966-.945 1.165c-.174.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.884-.788-1.48-1.761-1.653-2.059-.174-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.521-.074-.149-.672-1.62-.921-2.22-.242-.582-.487-.503-.672-.513l-.572-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.064 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487 0 0 .027.014.05.021.273.11.54.17.783.173.283.003.54.03.744.036.226.006.688-.09.995-.36.307-.27 1.02-.996 1.163-1.955.144-.96-.144-1.387-.44-1.535z"/>
+  </svg>
+</button>
+
+<style>
+/* Floating WhatsApp button */
+#whatsappFloat{
+  position:fixed;
+  right:20px;
+  bottom:calc(20px + env(safe-area-inset-bottom, 0px));
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:white;
+  border:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+  transform:translateZ(0);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+#whatsappFloat:focus{outline:3px solid rgba(37,211,102,.22)}
+#whatsappFloat:hover{transform:translateY(-4px) scale(1.02)}
+
+/* subtle pulse animation */
+@keyframes whatsappPulse{
+  0%{box-shadow:0 8px 20px rgba(37,211,102,0.22)}
+  50%{box-shadow:0 12px 28px rgba(37,211,102,0.28); transform:scale(1.03)}
+  100%{box-shadow:0 8px 20px rgba(37,211,102,0.22); transform:scale(1)}
+}
+#whatsappFloat{animation:whatsappPulse 4s ease-in-out infinite}
+
+/* add helper classes to hide or shift the button when needed */
+.hidden{opacity:0;transform:translateY(30%) scale(.9);pointer-events:none}
+.hidden-on-small{opacity:0;transform:translateY(60%);pointer-events:none}
+
+/* responsive adjustments for mobile */
+@media (max-width: 480px){
+  #whatsappFloat{width:44px;height:44px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom, 0px))}
+  #whatsappIcon{width:20px;height:20px}
+}
+
+@media (max-width:360px){
+  /* move a bit up to avoid mobile bottom bars */
+  #whatsappFloat{bottom:calc(18px + env(safe-area-inset-bottom, 0px))}
+}
+</style>
+
+<script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
